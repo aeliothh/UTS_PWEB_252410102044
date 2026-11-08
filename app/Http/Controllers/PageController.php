@@ -6,13 +6,11 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    // Menampilkan form login.
     public function login()
     {
         return view('login');
     }
 
-    // Memeriksa username lalu meneruskannya ke dashboard melalui URL.
     public function loginProcess(Request $request)
     {
         $data = $request->validate([
@@ -24,7 +22,6 @@ class PageController extends Controller
         ]);
     }
 
-    // Menyimpan contoh data film yang digunakan pada beberapa halaman.
     private function movies()
     {
         return [
@@ -59,7 +56,6 @@ class PageController extends Controller
         ];
     }
 
-    // Menyiapkan data yang dipakai halaman setelah login.
     private function pageData(Request $request)
     {
         $movies = $this->movies();
@@ -89,19 +85,16 @@ class PageController extends Controller
         ];
     }
 
-    // Menampilkan dashboard.
     public function dashboard(Request $request)
     {
         return view('dashboard', $this->pageData($request));
     }
 
-    // Menampilkan daftar film.
     public function pengelolaan(Request $request)
     {
         return view('pengelolaan', $this->pageData($request));
     }
 
-    // Menampilkan profil pengguna.
     public function profile(Request $request)
     {
         return view('profile', $this->pageData($request));
