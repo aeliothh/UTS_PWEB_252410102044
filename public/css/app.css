@@ -1,4 +1,3 @@
-/* ELITISMOV - CSS sederhana berdasarkan referensi desain */
 :root {
     --page: #000000;
     --dot: #000000;
@@ -401,4 +400,37 @@ body {
     .management-list--scroll .management-head,
     .management-list--scroll .management-row { min-width: 560px; }
     .management-row { font-size: 11px; }
+}
+
+.dashboard-film-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dashboard-film-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.dashboard-film-list li:last-child {
+    border-bottom: none;
+}
+
+.dashboard-film-title {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.dashboard-film-status {
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.collection-box .page-links a {
+    color: #ffffff;
 }
