@@ -24,7 +24,6 @@
     <div class="collection-box">
         <h2>DAFTAR FILM</h2>
 
-
         <div class="collection-box">
             <h2>RINGKASAN FILM</h2>
 
@@ -44,7 +43,7 @@
 
             <div class="page-links">
                 <a href="{{ route('pengelolaan', ['username' => $username]) }}">
-                    Lihat koleksi lengkap &rarr;
+                    Liat koleksi lengkap di &rarr;
                 </a>
             </div>
         </div>
