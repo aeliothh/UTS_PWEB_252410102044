@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    // Menampilkan halaman login
     public function login()
     {
         return view('login');
     }
 
+    // Memproses username dari form login
     public function loginProcess(Request $request)
     {
         $data = $request->validate([
@@ -22,6 +24,7 @@ class PageController extends Controller
         ]);
     }
 
+    // Data film
     private function movies()
     {
         return [
@@ -56,11 +59,14 @@ class PageController extends Controller
         ];
     }
 
+    // Menyiapkan data untuk setiap halaman
     private function pageData(Request $request)
     {
         $movies = $this->movies();
+
         $username = $request->query('username', 'Pengguna');
 
+        // Menghitung jumlah film berdasarkan status
         $watched = count(array_filter($movies, function ($movie) {
             return $movie['status'] === 'Ditonton';
         }));
@@ -69,15 +75,20 @@ class PageController extends Controller
             return $movie['status'] === 'Watchlist';
         }));
 
+        // Data statistik dashboard
         $stats = [
             ['label' => 'JUMLAH FILM', 'value' => count($movies)],
             ['label' => 'DITONTON', 'value' => $watched],
             ['label' => 'WATCHLIST', 'value' => $watchlist],
         ];
 
+        // Mengambil tiga film untuk dashboard
+        $featuredMovies = array_slice($movies, 0, 3);
+
         return [
             'username' => $username,
             'movies' => $movies,
+            'featuredMovies' => $featuredMovies,
             'stats' => $stats,
             'totalMovies' => count($movies),
             'watched' => $watched,
@@ -85,16 +96,19 @@ class PageController extends Controller
         ];
     }
 
+    // Menampilkan dashboard
     public function dashboard(Request $request)
     {
         return view('dashboard', $this->pageData($request));
     }
 
+    // Menampilkan pengelolaan film
     public function pengelolaan(Request $request)
     {
         return view('pengelolaan', $this->pageData($request));
     }
 
+    // Menampilkan profil pengguna
     public function profile(Request $request)
     {
         return view('profile', $this->pageData($request));
