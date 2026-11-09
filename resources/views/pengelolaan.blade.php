@@ -18,6 +18,7 @@
             <span>JUDUL FILM</span>
             <span>TAHUN</span>
             <span>GENRE</span>
+            <span>RATING</span>
             <span>STATUS</span>
         </div>
 
@@ -26,6 +27,7 @@
                 <strong>{{ $movie['title'] }}</strong>
                 <span>{{ $movie['year'] }}</span>
                 <span>{{ $movie['genre'] }}</span>
+                <span>{{ $movie['rating'] ?? '-' }}</span>
                 <span>{{ strtoupper($movie['status']) }}</span>
             </div>
         @endforeach
