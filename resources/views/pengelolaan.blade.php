@@ -6,7 +6,7 @@
 <div class="screen-label">KELOLA FILM</div>
 
 <section class="panel management-panel">
-    <x-navbar :username="$username" />
+    <x-navbar :username="$username" active="pengelolaan" />
 
     <div class="page-heading">
         <h1>KOLEKSI FILM</h1>
