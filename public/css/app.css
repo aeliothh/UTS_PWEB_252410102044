@@ -284,9 +284,10 @@ body {
     overflow-x: auto;
 }
 
-.management-head, .management-row {
+.management-head,
+.management-row {
     display: grid;
-    grid-template-columns: minmax(180px, 1.5fr) 55px minmax(110px, 1fr) 90px;
+    grid-template-columns: minmax(180px, 1.5fr) 55px minmax(110px, 1fr) 65px 90px;
     align-items: center;
     gap: 10px;
 }
