@@ -6,7 +6,7 @@
 <div class="screen-label">DASHBOARD</div>
 
 <section class="panel dashboard-panel">
-    <x-navbar :username="$username" />
+    <x-navbar :username="$username" active="dashboard" />
 
     <div class="welcome-text">
         SELAMAT DATANG, {{ strtoupper($username) }} !
