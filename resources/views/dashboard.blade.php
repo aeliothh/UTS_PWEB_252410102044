@@ -22,30 +22,27 @@
     </div>
 
     <div class="collection-box">
-        <h2>DAFTAR FILM</h2>
+        <h2>RINGKASAN FILM</h2>
 
-        <div class="collection-box">
-            <h2>RINGKASAN FILM</h2>
+        <ul class="dashboard-film-list">
+            @foreach ($featuredMovies as $movie)
+                <li>
+                    <span class="dashboard-film-title">
+                        {{ $movie['title'] }}
+                    </span>
 
-            <ul class="dashboard-film-list">
-                @foreach ($featuredMovies as $movie)
-                    <li>
-                        <span class="dashboard-film-title">
-                            {{ $movie['title'] }}
-                        </span>
+                    <span class="dashboard-film-status">
+                        {{ strtoupper($movie['status']) }}
+                    </span>
+                </li>
+            @endforeach
+        </ul>
 
-                        <span class="dashboard-film-status">
-                            {{ strtoupper($movie['status']) }}
-                        </span>
-                    </li>
-                @endforeach
-            </ul>
-
-            <div class="page-links">
-                <a href="{{ route('pengelolaan', ['username' => $username]) }}">
-                    Liat koleksi lengkap di &rarr;
-                </a>
-            </div>
+        <div class="page-links">
+            <a href="{{ route('pengelolaan', ['username' => $username]) }}">
+                Lihat koleksi lengkap &rarr;
+            </a>
         </div>
+    </div>
 </section>
 @endsection
